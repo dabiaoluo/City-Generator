@@ -11,5 +11,12 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSSlider *radius;
+@property (assign) IBOutlet NSSlider *buildings;
+
+@property (assign) IBOutlet NSTextField *buildingsNumberField;
+@property (assign) IBOutlet NSTextField *radiusField;
+
+@property (assign) IBOutlet NSPopUpButton *blockType;
 
 @end
