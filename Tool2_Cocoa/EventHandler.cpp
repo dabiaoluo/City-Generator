@@ -80,7 +80,7 @@ void EventHandler::processEvents()
 				}
                 else if(key == 'y')
 				{
-					e->exportBuildingsToFile("test.obj");
+					
 				}
                 else if(key == 'm')
 				{

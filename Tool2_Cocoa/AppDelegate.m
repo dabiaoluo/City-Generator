@@ -27,8 +27,109 @@
 Engine *engine = new Engine();
 NSSlider *radiusSlider;
 
-
 @implementation AppDelegate
+
+-(IBAction) exportOBJ:(id)sender
+{
+    engine->e->e->exportBuildingsToFile("test.obj");
+}
+
+-(IBAction) generateSUMO:(id)sender
+{
+    printf("Generating SUMO files...\n");
+    engine->connectionExporter->exportToFile("city.con.xml");
+    engine->nodeExporter->exportToFile("city.nod.xml");
+    engine->roadExporter->exportToFile("city.edg.xml");
+    
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    
+    std::string toolPath = [path UTF8String];
+    std::string commaPath = "\"";
+    commaPath.append(toolPath);
+    commaPath.append("/netconvert\" -c ~/Desktop/SUMO/city.netccfg --speed-in-kmh");
+//    printf("cmd: %s\n", commaPath.c_str());
+    
+    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.netccfg"] stringByExpandingTildeInPath];
+    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
+    if(!exists)
+        return;
+    
+    system(commaPath.c_str());
+}
+
+-(IBAction) generateRoutes:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    bool exists;
+    
+    std::string toolPath = [path UTF8String];
+    std::string commaPath = "\"";
+    commaPath.append(toolPath);
+    commaPath.append("/duarouter\" --trip-files=\"");
+    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.trips.xml"] stringByExpandingTildeInPath];
+    exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
+    if(!exists)
+        return;
+    
+    commaPath.append([folderPath UTF8String]);
+    commaPath.append("\" --net-file=\"");
+    exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
+    if(!exists)
+        return;
+    
+    folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
+    commaPath.append([folderPath UTF8String]);
+    commaPath.append("\" --output-file=");
+    folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.rou.xml"] stringByExpandingTildeInPath];
+    commaPath.append([folderPath UTF8String]);
+    commaPath.append(" --ignore-errors -e 3600 -W");
+    printf("cmd: %s\n", commaPath.c_str());
+    
+    system(commaPath.c_str());
+}
+
+-(IBAction) generateTrips:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    
+    std::string toolPath = [path UTF8String];
+    std::string commaPath = "python \"";
+    commaPath.append(toolPath);
+    
+    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
+    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
+    if(!exists)
+        return;
+
+    commaPath.append("/randomTrips.py\" -n ~/Desktop/SUMO/city.net.xml -p ");
+    commaPath.append([[_numberOfRoutes stringValue] UTF8String]);
+    commaPath.append(" -e 3600 -o ~/Desktop/SUMO/city.trips.xml ");
+    printf("cmd: %s\n", commaPath.c_str());
+    
+    system(commaPath.c_str());
+}
+
+-(IBAction) generateConnectivity:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] resourcePath];
+    
+    std::string toolPath = [path UTF8String];
+    std::string commaPath = "python \"";
+    commaPath.append(toolPath);
+    
+    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
+    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
+    if(!exists)
+        return;
+    
+    NSString *outPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/out.txt"] stringByExpandingTildeInPath];
+    
+    commaPath.append("/netcheck.py\" ~/Desktop/SUMO/city.net.xml --source L17.7131-L11.2048L17.7716-L11.2424 --selection-output=");
+    commaPath.append([outPath UTF8String]);
+    printf("cmd: %s\n", commaPath.c_str());
+    
+    system(commaPath.c_str());
+}
 
 - (void)dealloc
 {
@@ -52,9 +153,6 @@ NSSlider *radiusSlider;
     pos.y = windowRect.origin.y*2;
     [_window setFrameOrigin:pos];
     
-    
-    
-    
     engine->setup();
     Renderer *r = engine->r;
     EventHandler *e = engine->e;
@@ -68,17 +166,35 @@ NSSlider *radiusSlider;
     engine->mainMenu->updateLabels();
     
     NSString *path = [[NSBundle mainBundle] resourcePath];
+    NSString *roadPath = [[NSString stringWithFormat:@"~/Desktop/roads.dxf"] stringByExpandingTildeInPath];
     
     Test_CreationClass* creationClass = new Test_CreationClass();
     DL_Dxf* dxf = new DL_Dxf();
-    std::string resourcePath = [path UTF8String];
-    resourcePath.append("/test.dxf");
+    std::string resourcePath = [roadPath UTF8String];
+//    resourcePath.append("/roads.dxf");
     
     if (!dxf->in(resourcePath.c_str(), creationClass))
     { // if file open failed
         exit(0);
     }
     engine->mf->finish();
+    
+//
+//
+//    commaPath = "\"";
+//    commaPath.append(toolPath);
+//    commaPath.append("/randomTrips.py\" -n ~/Desktop/SUMO/city.net.xml -e 1000 -l -o ~/Desktop/SUMO/city.trips.xml ");
+//    printf("cmd: %s\n", commaPath.c_str());
+//
+//    system(commaPath.c_str());
+//
+//    commaPath = "\"";
+//    commaPath.append(toolPath);
+//    commaPath.append("/duarouter\" --trip-files=\"/Users/gbuzogany/Desktop/SUMO/city.trips.xml\" --net-file=\"/Users/gbuzogany/Desktop/SUMO/city.net.xml\" --output-file=/Users/gbuzogany/Desktop/SUMO/city.rou.xml --ignore-errors ");
+//    printf("cmd: %s\n", commaPath.c_str());
+//    
+//    system(commaPath.c_str());
+//    exit(0);
     
     printf("Building VAOs...\n");
     engine->buildVAO();
@@ -124,12 +240,13 @@ NSSlider *radiusSlider;
         
         float nwx, nwy, nwz;
         
-        float z = -engine->e->depth/(r->zFar-r->zNear);
+        float z = 2.0f/(r->zFar-r->zNear);
         
         nwx = 2 * (e->mouse_x - r->viewport[0])/r->viewport[2] - 1;
         nwy = 2 * (r->viewport[3]-e->mouse_y)/r->viewport[3] - 1;
-        nwz = 2 * z - 1;
-        
+        nwz = z*(-e->depth-r->zNear) - 1.0f;
+        nwz *= -1;
+//        printf("nwz: %f\n", nwz);
         
         r->translate(0, 0, e->depth);
         r->rotate((e->rot_ax+e->rot_x)*0.3f, glm::vec3(1,0,0));
@@ -147,7 +264,6 @@ NSSlider *radiusSlider;
         
         r->popMatrix();
         
-        
         if(engine->sfInitialized == true)
         {
             r->pushMatrix();
@@ -161,14 +277,14 @@ NSSlider *radiusSlider;
             r->popMatrix();
         }
         
-        glm::vec3 zNearPoint = glm::unProject(glm::vec3(e->mouse_x, r->viewport[3]-e->mouse_y, nwz), r->modelMatrix, r->projectionMatrix, glm::vec4(r->viewport));
+        glm::vec3 zNearPoint = glm::unProject(glm::vec3(r->viewport[2]-e->mouse_x, e->mouse_y, nwz), r->modelMatrix, r->projectionMatrix, glm::vec4(r->viewport));
         
         glm::vec3 camPos;
         camPos = glm::unProject(glm::vec3(r->viewport[2]/2.0f, r->viewport[3]/2.0f, 0),
                                 r->modelMatrix, r->projectionMatrix, glm::vec4(r->viewport));
         
         glm::vec3 v(camPos.x-zNearPoint.x, camPos.y-zNearPoint.y, camPos.z-zNearPoint.z);
-        v.x *= 1.2f;
+        v.x *= 1.05f;
         v.y *= 1.6f;
         
         glm::vec3 cubePos;

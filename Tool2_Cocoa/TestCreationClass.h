@@ -31,7 +31,6 @@
 #include "Layer.h"
 #include "Engine.h"
 #include <map>
-#include "spatialindex/SpatialIndex.h"
 
 class Test_CreationClass : public DL_CreationAdapter {
 public:
@@ -45,6 +44,8 @@ public:
     virtual void addPolyline(const DL_PolylineData& data);
     virtual void addVertex(const DL_VertexData& data);
     virtual void add3dFace(const DL_3dFaceData& data);
+    
+    virtual void insertRoad(glm::vec2 a, glm::vec2 b);
     
     void printAttributes();
 };

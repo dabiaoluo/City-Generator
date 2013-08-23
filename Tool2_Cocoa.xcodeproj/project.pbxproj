@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6623BE5F17C6CF06006B9827 /* netcheck.py in Resources */ = {isa = PBXBuildFile; fileRef = 6623BE5E17C6CEFB006B9827 /* netcheck.py */; };
+		6628FA8D17BC022700DB47B7 /* Road.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6628FA8B17BC022700DB47B7 /* Road.cpp */; };
+		6628FA9017BC023300DB47B7 /* RoadVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */; };
+		66337C3917BD714C00991BD2 /* netconvert in Resources */ = {isa = PBXBuildFile; fileRef = 66337C3817BD713F00991BD2 /* netconvert */; };
 		6636907517B43E2F003EAB57 /* companies.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6636907417B43E2F003EAB57 /* companies.icns */; };
+		663D48FE17BFF03500489EA1 /* randomTrips.py in Resources */ = {isa = PBXBuildFile; fileRef = 663D48FD17BFF02E00489EA1 /* randomTrips.py */; };
+		663D493017BFF42600489EA1 /* duarouter in Resources */ = {isa = PBXBuildFile; fileRef = 663D492F17BFF42200489EA1 /* duarouter */; };
 		6641B78617B40BB500E1DC7A /* exportOBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6641B78417B40BB500E1DC7A /* exportOBJ.cpp */; };
 		6641B78A17B414F200E1DC7A /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6641B78817B414F200E1DC7A /* MainMenu.cpp */; };
+		6645463C17BC215400FFFA60 /* Connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6645463A17BC215400FFFA60 /* Connection.cpp */; };
+		6645464017BC24BC00FFFA60 /* ConnectionExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */; };
 		666A3BCC17B42FC90037AB8A /* libspatialindex.3.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */; };
 		666B7F1E17B3891B008271D4 /* TestCreationClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F0C17B3891A008271D4 /* TestCreationClass.cpp */; };
 		666B7F1F17B3891B008271D4 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F0E17B3891A008271D4 /* Model.cpp */; };
@@ -26,7 +34,8 @@
 		666B7F3217B389B9008271D4 /* shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 666B7F2E17B389A8008271D4 /* shader.vert */; };
 		666B7F3517B38A95008271D4 /* libspatialindex.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */; };
 		666B7F3717B38A99008271D4 /* libdxflib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 666B7F3617B38A99008271D4 /* libdxflib.a */; };
-		666B7F3A17B38C19008271D4 /* test.dxf in Resources */ = {isa = PBXBuildFile; fileRef = 666B7F3917B38C19008271D4 /* test.dxf */; };
+		66A0C6EC17BD5DEF008467D2 /* NodeExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */; };
+		66A0C6EF17BD60A7008467D2 /* RoadExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */; };
 		66E7690B17B249DA00E9541D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7690A17B249DA00E9541D /* Cocoa.framework */; };
 		66E7691517B249DA00E9541D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66E7691317B249DA00E9541D /* InfoPlist.strings */; };
 		66E7691717B249DA00E9541D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E7691617B249DA00E9541D /* main.m */; };
@@ -56,11 +65,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6623BE5E17C6CEFB006B9827 /* netcheck.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = netcheck.py; sourceTree = "<group>"; };
+		6628FA8B17BC022700DB47B7 /* Road.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Road.cpp; sourceTree = "<group>"; };
+		6628FA8C17BC022700DB47B7 /* Road.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Road.h; sourceTree = "<group>"; };
+		6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoadVertex.cpp; sourceTree = "<group>"; };
+		6628FA8F17BC023300DB47B7 /* RoadVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadVertex.h; sourceTree = "<group>"; };
+		66337C3817BD713F00991BD2 /* netconvert */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = netconvert; sourceTree = "<group>"; };
 		6636907417B43E2F003EAB57 /* companies.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = companies.icns; sourceTree = "<group>"; };
+		663D48FD17BFF02E00489EA1 /* randomTrips.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = randomTrips.py; sourceTree = "<group>"; };
+		663D492F17BFF42200489EA1 /* duarouter */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = duarouter; sourceTree = "<group>"; };
 		6641B78417B40BB500E1DC7A /* exportOBJ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exportOBJ.cpp; sourceTree = "<group>"; };
 		6641B78517B40BB500E1DC7A /* exportOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exportOBJ.h; sourceTree = "<group>"; };
 		6641B78817B414F200E1DC7A /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenu.cpp; path = ../MainMenu.cpp; sourceTree = "<group>"; };
 		6641B78917B414F200E1DC7A /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenu.h; path = ../MainMenu.h; sourceTree = "<group>"; };
+		6645463A17BC215400FFFA60 /* Connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connection.cpp; sourceTree = "<group>"; };
+		6645463B17BC215400FFFA60 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionExporter.cpp; sourceTree = "<group>"; };
+		6645463F17BC24BC00FFFA60 /* ConnectionExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionExporter.h; sourceTree = "<group>"; };
 		666B7F0C17B3891A008271D4 /* TestCreationClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCreationClass.cpp; sourceTree = "<group>"; };
 		666B7F0D17B3891A008271D4 /* TestCreationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCreationClass.h; sourceTree = "<group>"; };
 		666B7F0E17B3891A008271D4 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
@@ -84,7 +105,10 @@
 		666B7F3317B389D2008271D4 /* glStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glStructs.h; sourceTree = "<group>"; };
 		666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspatialindex.3.0.0.dylib; sourceTree = "<group>"; };
 		666B7F3617B38A99008271D4 /* libdxflib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdxflib.a; sourceTree = "<group>"; };
-		666B7F3917B38C19008271D4 /* test.dxf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.dxf; sourceTree = "<group>"; };
+		66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeExporter.cpp; sourceTree = "<group>"; };
+		66A0C6EB17BD5DEF008467D2 /* NodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeExporter.h; sourceTree = "<group>"; };
+		66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoadExporter.cpp; sourceTree = "<group>"; };
+		66A0C6EE17BD60A7008467D2 /* RoadExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadExporter.h; sourceTree = "<group>"; };
 		66E7690717B249DA00E9541D /* City Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E7690A17B249DA00E9541D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		66E7690D17B249DA00E9541D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -128,6 +152,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6628FA8A17BC021F00DB47B7 /* Roads */ = {
+			isa = PBXGroup;
+			children = (
+				6628FA8B17BC022700DB47B7 /* Road.cpp */,
+				6628FA8C17BC022700DB47B7 /* Road.h */,
+				6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */,
+				6628FA8F17BC023300DB47B7 /* RoadVertex.h */,
+				6645463A17BC215400FFFA60 /* Connection.cpp */,
+				6645463B17BC215400FFFA60 /* Connection.h */,
+			);
+			name = Roads;
+			sourceTree = "<group>";
+		};
+		66337C3717BD713400991BD2 /* Sumo */ = {
+			isa = PBXGroup;
+			children = (
+				663D492F17BFF42200489EA1 /* duarouter */,
+				6623BE5E17C6CEFB006B9827 /* netcheck.py */,
+				663D48FD17BFF02E00489EA1 /* randomTrips.py */,
+				66337C3817BD713F00991BD2 /* netconvert */,
+			);
+			name = Sumo;
+			sourceTree = "<group>";
+		};
 		6641B78717B40BB800E1DC7A /* Exporter */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +183,19 @@
 				6641B78517B40BB500E1DC7A /* exportOBJ.h */,
 			);
 			name = Exporter;
+			sourceTree = "<group>";
+		};
+		6645463D17BC24AD00FFFA60 /* XMLExporter */ = {
+			isa = PBXGroup;
+			children = (
+				6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */,
+				6645463F17BC24BC00FFFA60 /* ConnectionExporter.h */,
+				66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */,
+				66A0C6EB17BD5DEF008467D2 /* NodeExporter.h */,
+				66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */,
+				66A0C6EE17BD60A7008467D2 /* RoadExporter.h */,
+			);
+			name = XMLExporter;
 			sourceTree = "<group>";
 		};
 		666B7F2717B38926008271D4 /* Engine */ = {
@@ -211,7 +272,6 @@
 		666B7F3817B38C0C008271D4 /* Drawings */ = {
 			isa = PBXGroup;
 			children = (
-				666B7F3917B38C19008271D4 /* test.dxf */,
 			);
 			name = Drawings;
 			sourceTree = "<group>";
@@ -260,6 +320,9 @@
 		66E7691017B249DA00E9541D /* Tool2_Cocoa */ = {
 			isa = PBXGroup;
 			children = (
+				66337C3717BD713400991BD2 /* Sumo */,
+				6645463D17BC24AD00FFFA60 /* XMLExporter */,
+				6628FA8A17BC021F00DB47B7 /* Roads */,
 				6641B78717B40BB800E1DC7A /* Exporter */,
 				666B7F3817B38C0C008271D4 /* Drawings */,
 				666B7F2C17B389A0008271D4 /* Shaders */,
@@ -350,7 +413,10 @@
 				66E7691517B249DA00E9541D /* InfoPlist.strings in Resources */,
 				66E7691B17B249DA00E9541D /* Credits.rtf in Resources */,
 				66E7692117B249DA00E9541D /* MainMenu.xib in Resources */,
-				666B7F3A17B38C19008271D4 /* test.dxf in Resources */,
+				66337C3917BD714C00991BD2 /* netconvert in Resources */,
+				663D48FE17BFF03500489EA1 /* randomTrips.py in Resources */,
+				663D493017BFF42600489EA1 /* duarouter in Resources */,
+				6623BE5F17C6CF06006B9827 /* netcheck.py in Resources */,
 				6636907517B43E2F003EAB57 /* companies.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +456,7 @@
 				666B7F2017B3891B008271D4 /* ModelComponent.cpp in Sources */,
 				666B7F2117B3891B008271D4 /* Layer.cpp in Sources */,
 				666B7F2217B3891B008271D4 /* ModelFactory.cpp in Sources */,
+				6628FA8D17BC022700DB47B7 /* Road.cpp in Sources */,
 				666B7F2317B3891B008271D4 /* BuildingFactory.cpp in Sources */,
 				666B7F2417B3891B008271D4 /* Building.cpp in Sources */,
 				666B7F2517B3891B008271D4 /* SurfaceFactory.cpp in Sources */,
@@ -398,6 +465,11 @@
 				666B7F2F17B389A8008271D4 /* shader.frag in Sources */,
 				666B7F3017B389A8008271D4 /* shader.vert in Sources */,
 				6641B78A17B414F200E1DC7A /* MainMenu.cpp in Sources */,
+				6628FA9017BC023300DB47B7 /* RoadVertex.cpp in Sources */,
+				6645463C17BC215400FFFA60 /* Connection.cpp in Sources */,
+				6645464017BC24BC00FFFA60 /* ConnectionExporter.cpp in Sources */,
+				66A0C6EC17BD5DEF008467D2 /* NodeExporter.cpp in Sources */,
+				66A0C6EF17BD60A7008467D2 /* RoadExporter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

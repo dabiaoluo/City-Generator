@@ -22,6 +22,11 @@
 #include "Building.h"
 #include "SurfaceFactory.h"
 #include "MainMenu.h"
+#include "RoadVertex.h"
+#include "Connection.h"
+#include "ConnectionExporter.h"
+#include "NodeExporter.h"
+#include "RoadExporter.h"
 
 struct PointerContainer
 {
@@ -43,12 +48,25 @@ public:
     Renderer *r;
     EventHandler *e;
     
+    ConnectionExporter *connectionExporter;
+    NodeExporter *nodeExporter;
+    RoadExporter *roadExporter;
+    
     std::list<Model*> modelList;
     std::map<std::string, Layer*> layerMap;
     std::map<int64_t, PointerContainer> componentMap;
     
+    std::map<int64_t, RoadVertex*> nodeMap;
+    
+    std::list<RoadVertex*> nodeList;
+    std::list<Road*> RoadList;
+    std::list<Connection*> connectionList;
+    
+    
     SpatialIndex::IStorageManager* memfile;
     SpatialIndex::ISpatialIndex* tree;
+    
+    SpatialIndex::ISpatialIndex* roadTree;
     
     SurfaceFactory *sf;
     bool sfInitialized;
@@ -60,6 +78,10 @@ public:
     std::list<glm::vec3> cubeList;
     std::list<Building*> buildingList;
 
+    int64_t lastRoadID, lastNodeID;
+    
+    int64_t lastVertex;
+    glm::vec2 lastVertexPos;
     
     int64_t lastIdentifier;
     

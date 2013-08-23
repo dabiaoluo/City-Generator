@@ -168,30 +168,30 @@ void BuildingFactory::createBuildingsOfType(float radius, int numBuildings, int 
             
             switch (type) {
                 case 2:
-                    bType = t2[(int)rand()%sizeof(t2)];
+                    bType = t2[((int)rand())%sizeof(t2)/sizeof(int)];
                     break;
                 case 3:
                     bType = t3[0];
                     break;
                 case 4:
-                    bType = t4[(int)rand()%sizeof(t4)];
+                    bType = t4[((int)rand())%sizeof(t4)/sizeof(int)];
                     break;
                 case 5:
-                    bType = t5[(int)rand()%sizeof(t5)];
+                    bType = t5[((int)rand())%sizeof(t5)/sizeof(int)];
                     break;
                 case 6:
-                    bType = t6[(int)rand()%sizeof(t6)];
+                    bType = t6[((int)rand())%sizeof(t6)/sizeof(int)];
                     break;
                 case 7:
-                    bType = t7[(int)rand()%sizeof(t7)];
-                    
+                    bType = t7[((int)rand())%sizeof(t7)/sizeof(int)];
                     break;
                     
                 default:
                     bType = 1;
             }
             
-            printf("Type: %d\n", bType);
+//            printf("Type: %d\n", bType);
+//            printf("Rand: %ld\n", ((int)rand())%sizeof(t7)/sizeof(int));
             
             currBuilding->generate(bType);
             

@@ -34,6 +34,9 @@ public:
 Engine::Engine()
 {
     lastIdentifier = 0;
+    lastRoadID = 0;
+    lastNodeID = 0;
+    lastVertex = -1;
     
     e = new EventHandler();
     
@@ -52,6 +55,10 @@ Engine::Engine()
     cursorPos = glm::vec2(0.0f);
     
     tree = RTree::createNewRTree(*memfile, 0.7, indxCap, leafCap, 2, SpatialIndex::RTree::RV_RSTAR, indexIdentifier);
+    
+    memfile = StorageManager::createNewMemoryStorageManager();
+    
+    roadTree = RTree::createNewRTree(*memfile, 0.7, indxCap, leafCap, 2, SpatialIndex::RTree::RV_RSTAR, indexIdentifier);
     
     bf = new BuildingFactory();
     
@@ -83,6 +90,10 @@ Engine::Engine()
     region = Region(plow, phigh, 2);
     
     tree->insertData(0, 0, region, id);
+    
+    connectionExporter = new ConnectionExporter();
+    nodeExporter = new NodeExporter();
+    roadExporter = new RoadExporter();
 }
 
 void Engine::buildVAO()
