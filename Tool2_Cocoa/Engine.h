@@ -10,8 +10,6 @@
 #define __Tool2__Engine__
 
 #include <iostream>
-#include "Model.h"
-#include "ModelFactory.h"
 #include "Renderer.h"
 #include <list>
 #include <map>
@@ -22,15 +20,13 @@
 #include "Building.h"
 #include "SurfaceFactory.h"
 #include "MainMenu.h"
-#include "RoadVertex.h"
-#include "Connection.h"
-#include "ConnectionExporter.h"
-#include "NodeExporter.h"
-#include "RoadExporter.h"
+#include "ModelLine.h"
+#include "Texture.h"
+#include "TextureLoader.h"
 
 struct PointerContainer
 {
-    ModelComponent* modelComponent;
+    ModelLine* line;
     Building* building;
 };
 
@@ -43,27 +39,19 @@ public:
     int64_t getNextIdentifier();
     void queryPoint();
     void calculateSceneBounds();
+    void loadTexture(const char* file);
     
-    ModelFactory *mf;
     Renderer *r;
     EventHandler *e;
-    
-    ConnectionExporter *connectionExporter;
-    NodeExporter *nodeExporter;
-    RoadExporter *roadExporter;
-    
-    std::list<Model*> modelList;
+    TextureLoader *tl;
+
     std::map<std::string, Layer*> layerMap;
     std::map<int64_t, PointerContainer> componentMap;
     
-    std::map<int64_t, RoadVertex*> nodeMap;
-    
-    std::list<RoadVertex*> nodeList;
-    std::list<Road*> RoadList;
-    std::list<Connection*> connectionList;
-    
-    
-    SpatialIndex::IStorageManager* memfile;
+    std::vector<ModelLine*> lineList;
+    std::vector<Texture*> textureList;
+
+    SpatialIndex::IStorageManager *memfile;
     SpatialIndex::ISpatialIndex* tree;
     
     SpatialIndex::ISpatialIndex* roadTree;
@@ -81,7 +69,7 @@ public:
     int64_t lastRoadID, lastNodeID;
     
     int64_t lastVertex;
-    glm::vec2 lastVertexPos;
+    glm::vec3 lastVertexPos;
     
     int64_t lastIdentifier;
     

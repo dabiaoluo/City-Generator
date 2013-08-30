@@ -27,6 +27,7 @@ enum {
 enum {
     ATTRIB_VERTEX,
     ATTRIB_COLOR,
+    ATTRIB_TEX,
     NUM_ATTRIBUTES
 };
 

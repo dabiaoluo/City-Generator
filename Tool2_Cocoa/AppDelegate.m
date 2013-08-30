@@ -16,8 +16,6 @@
 
 #include "Engine.h"
 #include "TestCreationClass.h"
-#include "Model.h"
-#include "ModelFactory.h"
 
 #include <math.h>
 #include "utils.h"
@@ -25,110 +23,15 @@
 #include "dxflib/dl_creationadapter.h"
 
 Engine *engine = new Engine();
-NSSlider *radiusSlider;
+
 
 @implementation AppDelegate
+
+@synthesize blockType, buildings, buildingsNumberField, error, radius, radiusField, window;
 
 -(IBAction) exportOBJ:(id)sender
 {
     engine->e->e->exportBuildingsToFile("test.obj");
-}
-
--(IBAction) generateSUMO:(id)sender
-{
-    printf("Generating SUMO files...\n");
-    engine->connectionExporter->exportToFile("city.con.xml");
-    engine->nodeExporter->exportToFile("city.nod.xml");
-    engine->roadExporter->exportToFile("city.edg.xml");
-    
-    NSString *path = [[NSBundle mainBundle] resourcePath];
-    
-    std::string toolPath = [path UTF8String];
-    std::string commaPath = "\"";
-    commaPath.append(toolPath);
-    commaPath.append("/netconvert\" -c ~/Desktop/SUMO/city.netccfg --speed-in-kmh");
-//    printf("cmd: %s\n", commaPath.c_str());
-    
-    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.netccfg"] stringByExpandingTildeInPath];
-    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
-    if(!exists)
-        return;
-    
-    system(commaPath.c_str());
-}
-
--(IBAction) generateRoutes:(id)sender
-{
-    NSString *path = [[NSBundle mainBundle] resourcePath];
-    bool exists;
-    
-    std::string toolPath = [path UTF8String];
-    std::string commaPath = "\"";
-    commaPath.append(toolPath);
-    commaPath.append("/duarouter\" --trip-files=\"");
-    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.trips.xml"] stringByExpandingTildeInPath];
-    exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
-    if(!exists)
-        return;
-    
-    commaPath.append([folderPath UTF8String]);
-    commaPath.append("\" --net-file=\"");
-    exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
-    if(!exists)
-        return;
-    
-    folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
-    commaPath.append([folderPath UTF8String]);
-    commaPath.append("\" --output-file=");
-    folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.rou.xml"] stringByExpandingTildeInPath];
-    commaPath.append([folderPath UTF8String]);
-    commaPath.append(" --ignore-errors -e 3600 -W");
-    printf("cmd: %s\n", commaPath.c_str());
-    
-    system(commaPath.c_str());
-}
-
--(IBAction) generateTrips:(id)sender
-{
-    NSString *path = [[NSBundle mainBundle] resourcePath];
-    
-    std::string toolPath = [path UTF8String];
-    std::string commaPath = "python \"";
-    commaPath.append(toolPath);
-    
-    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
-    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
-    if(!exists)
-        return;
-
-    commaPath.append("/randomTrips.py\" -n ~/Desktop/SUMO/city.net.xml -p ");
-    commaPath.append([[_numberOfRoutes stringValue] UTF8String]);
-    commaPath.append(" -e 3600 -o ~/Desktop/SUMO/city.trips.xml ");
-    printf("cmd: %s\n", commaPath.c_str());
-    
-    system(commaPath.c_str());
-}
-
--(IBAction) generateConnectivity:(id)sender
-{
-    NSString *path = [[NSBundle mainBundle] resourcePath];
-    
-    std::string toolPath = [path UTF8String];
-    std::string commaPath = "python \"";
-    commaPath.append(toolPath);
-    
-    NSString *folderPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/city.net.xml"] stringByExpandingTildeInPath];
-    bool exists = [[NSFileManager defaultManager] fileExistsAtPath:folderPath];
-    if(!exists)
-        return;
-    
-    NSString *outPath = [[NSString stringWithFormat:@"~/Desktop/SUMO/out.txt"] stringByExpandingTildeInPath];
-    
-    commaPath.append("/netcheck.py\" ~/Desktop/SUMO/city.net.xml --source L17.7131-L11.2048L17.7716-L11.2424 --selection-output=");
-    commaPath.append([outPath UTF8String]);
-    printf("cmd: %s\n", commaPath.c_str());
-    
-    system(commaPath.c_str());
 }
 
 - (void)dealloc
@@ -151,17 +54,17 @@ NSSlider *radiusSlider;
     NSRect windowRect = [[self window] frame];
     NSPoint pos;
     pos.y = windowRect.origin.y*2;
-    [_window setFrameOrigin:pos];
+    [window setFrameOrigin:pos];
     
     engine->setup();
     Renderer *r = engine->r;
     EventHandler *e = engine->e;
     
-    engine->mainMenu->radius = _radius;
-    engine->mainMenu->radiusField = _radiusField;
-    engine->mainMenu->buildings = _buildings;
-    engine->mainMenu->buildingsNumberField = _buildingsNumberField;
-    engine->mainMenu->blockType = _blockType;
+    engine->mainMenu->radius = radius;
+    engine->mainMenu->radiusField = radiusField;
+    engine->mainMenu->buildings = buildings;
+    engine->mainMenu->buildingsNumberField = buildingsNumberField;
+    engine->mainMenu->blockType = blockType;
 
     engine->mainMenu->updateLabels();
     
@@ -177,31 +80,8 @@ NSSlider *radiusSlider;
     { // if file open failed
         exit(0);
     }
-    engine->mf->finish();
     
-//
-//
-//    commaPath = "\"";
-//    commaPath.append(toolPath);
-//    commaPath.append("/randomTrips.py\" -n ~/Desktop/SUMO/city.net.xml -e 1000 -l -o ~/Desktop/SUMO/city.trips.xml ");
-//    printf("cmd: %s\n", commaPath.c_str());
-//
-//    system(commaPath.c_str());
-//
-//    commaPath = "\"";
-//    commaPath.append(toolPath);
-//    commaPath.append("/duarouter\" --trip-files=\"/Users/gbuzogany/Desktop/SUMO/city.trips.xml\" --net-file=\"/Users/gbuzogany/Desktop/SUMO/city.net.xml\" --output-file=/Users/gbuzogany/Desktop/SUMO/city.rou.xml --ignore-errors ");
-//    printf("cmd: %s\n", commaPath.c_str());
-//    
-//    system(commaPath.c_str());
-//    exit(0);
-    
-    printf("Building VAOs...\n");
-    engine->buildVAO();
-    printf("Built!\n");
-
-    
-    r->createFramebuffer();
+//    r->createFramebuffer();
     
     std::string vsPath = [path UTF8String];
     vsPath.append("/shader.vert");
@@ -213,26 +93,48 @@ NSSlider *radiusSlider;
     sp->load(vsPath.c_str(), fsPath.c_str());
     sp->bindAttribLocation(0, "in_Position");
     sp->bindAttribLocation(1, "in_Color");
+    sp->bindAttribLocation(2, "uv_texCoord");
     sp->link();
     
     r->perspective();
     
-    r->loadVAO();
+    r->buildVAO();
     
-    r->renderToScreen();
+//    r->renderToScreen();
     sp->useProgram();
     
     glm::vec3 cameraPos(0.001f);
     
     cameraPos.z = e->depth;
     
-    bool toScreen = true;
+//    engine->loadTexture("01.jpg");
+//    engine->loadTexture("02.jpg");
+//    engine->loadTexture("03.jpg");
+//    engine->loadTexture("04.jpg");
+//    engine->loadTexture("05.jpg");
+//    engine->loadTexture("06.jpg");
+//    engine->loadTexture("07.jpg");
+//    engine->loadTexture("08.jpg");
+//    engine->loadTexture("09.jpg");
+//    engine->loadTexture("10.jpg");
+//    engine->loadTexture("11.jpg");
+//    engine->loadTexture("12.jpg");
+//    engine->loadTexture("13.jpg");
+//    engine->loadTexture("14.jpg");
+//    engine->loadTexture("15.jpg");
+//    engine->loadTexture("16.jpg");
+//    engine->loadTexture("17.jpg");
+    engine->loadTexture("01.jpg");
     
+    GLint mvp_uniform = sp->getUniform("modelViewProjectionMatrix");
+    GLint useTexture = sp->getUniform("useTexture");
+    GLuint TextureID  = sp->getUniform("s_texture");
+
     while(1)
     {
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        GLint mvp_uniform = sp->getUniform("modelViewProjectionMatrix");
+        
         
         e->processEvents();
         r->loadIdentity();
@@ -258,9 +160,13 @@ NSSlider *radiusSlider;
         r->pushMatrix();
         
         r->modelMatrix = r->modelMatrix * objMatrix;
-        
+
         glUniformMatrix4fv(mvp_uniform, 1, GL_FALSE, glm::value_ptr(r->modelMatrix));
-        r->renderAllModels();
+        
+//        r->renderAllModels();
+        glBindVertexArray(engine->r->vao);
+        glDrawElements(GL_LINES, engine->r->vertexList.size()*1.0f, GL_UNSIGNED_INT, (GLvoid*)0);
+        glBindVertexArray(0);
         
         r->popMatrix();
         
@@ -301,8 +207,9 @@ NSSlider *radiusSlider;
         glBindVertexArray(r->vao);
         glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (GLvoid*)0);
         
-        r->scale(100.00f*[_radius floatValue], 100.0f*[_radius floatValue], 100.0f);
+        r->scale(100.00f*[radius floatValue], 100.0f*[radius floatValue], 100.0f);
         glUniformMatrix4fv(mvp_uniform, 1, GL_FALSE, glm::value_ptr(r->modelMatrix));
+        
         
         glBindVertexArray(r->circleVao);
         glDrawElements(GL_LINE_LOOP, 30, GL_UNSIGNED_INT, (GLvoid*)0);
@@ -350,6 +257,7 @@ NSSlider *radiusSlider;
             
             glUniformMatrix4fv(mvp_uniform, 1, GL_FALSE, glm::value_ptr(r->modelMatrix));
             
+
             glBindVertexArray(r->vao);
             glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (GLvoid*)0);
             glBindVertexArray(0);
@@ -369,11 +277,18 @@ NSSlider *radiusSlider;
             
             r->modelMatrix = r->modelMatrix * objMatrix;
             
+            glUniform1i(useTexture, 1);
             
             glUniformMatrix4fv(mvp_uniform, 1, GL_FALSE, glm::value_ptr(r->modelMatrix));
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, engine->textureList[0]->image);
+            glUniform1i(TextureID, 0);
             
             glBindVertexArray(aux->vao);
             glDrawElements(GL_TRIANGLES, aux->numTriangles, GL_UNSIGNED_INT, (GLvoid*)0);
+//            glDrawArrays(GL_TRIANGLES, aux->numTriangles);
+            
+            glUniform1i(useTexture, 0);
             glBindVertexArray(0);
             r->popMatrix();
         }
@@ -385,6 +300,7 @@ NSSlider *radiusSlider;
         //        }
         //        else
         //        {
+        SDL_Delay(1000.0f / 60.0f);
         r->swap();
         //            r->renderToTexture();
         //            toScreen = true;

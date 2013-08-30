@@ -17,8 +17,9 @@
 #include "glm/gtx/transform.hpp"
 #include <list>
 #include <stack>
-#include "Model.h"
-#include "ModelComponent.h"
+#include <vector>
+#include "IL/il.h"
+#include "glStructs.h"
 //#include "SOIL.h"
 
 #define SDL_WindowID SDL_Window*
@@ -28,6 +29,22 @@ typedef enum {
     Y_AXIS,
     Z_AXIS
 } AXIS;
+
+struct Vertex
+{
+    GLfloat position[3];
+};
+
+struct Color
+{
+    GLfloat color[3];
+};
+
+struct UV
+{
+    GLfloat u;
+    GLfloat v;
+};
 
 class Renderer
 {
@@ -49,23 +66,32 @@ public:
     void renderAllModels();
     void pushMatrix();
     void popMatrix();
+    void buildVAO();
     glm::vec3 unproject(int wx, int wy);
     void createFramebuffer();
     void renderToScreen();
     void renderToTexture();
     void writeTextureToFile();
     void loadCircle();
+    void updateColors();
 
     glm::mat4 projectionMatrix;
     glm::mat4 modelMatrix;
     
     GLuint colorBuffer;
     GLuint vertexBuffer;
+    GLuint indexBuffer;
     GLuint uvBuffer;
-    GLuint elementBuffer;
+    
+    std::vector<Vertex> vertexList;
+    std::vector<GLint> indexList;
+    std::vector<Color> colorList;
+    
     GLuint vao;
+    GLuint cubeVao;
     GLuint circleVao;
     GLfloat fov, zNear, zFar;
+    
     std::stack<glm::mat4> matrixStack;
     glm::vec4 viewport;
     

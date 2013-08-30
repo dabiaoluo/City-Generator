@@ -26,8 +26,6 @@
 #define TEST_CREATIONCLASS_H
 
 #include "dxflib/dl_creationadapter.h"
-#include "ModelComponent.h"
-#include "Model.h"
 #include "Layer.h"
 #include "Engine.h"
 #include <map>
@@ -44,8 +42,6 @@ public:
     virtual void addPolyline(const DL_PolylineData& data);
     virtual void addVertex(const DL_VertexData& data);
     virtual void add3dFace(const DL_3dFaceData& data);
-    
-    virtual void insertRoad(glm::vec2 a, glm::vec2 b);
     
     void printAttributes();
 };

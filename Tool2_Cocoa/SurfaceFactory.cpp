@@ -8,6 +8,7 @@
 
 #include "SurfaceFactory.h"
 #include "Engine.h"
+#include "ModelLine.h"
 
 using namespace SpatialIndex;
 
@@ -33,48 +34,24 @@ public:
     
 	void visitData(const IData& d)
 	{
-        if(engine->componentMap[d.getIdentifier()].modelComponent != NULL)
+        if(engine->componentMap[d.getIdentifier()].line != NULL)
         {
-            ModelComponent* mc = engine->componentMap[d.getIdentifier()].modelComponent;
+           
+            ModelLine* ml = engine->componentMap[d.getIdentifier()].line;
 //            mc->repaint(glm::vec3(0,255,0));
             glm::vec3 pa;
             glm::vec3 pb;
             
-            if(mc->vertexList.size() == 1) // just a point
+            pa = glm::vec3(ml->a.x, ml->a.y, ml->a.z);
+            pb = glm::vec3(ml->b.x, ml->b.y, ml->b.z);
+            
+            glm::vec2 intersection(-1.0f, -1.0f);
+            intersect = sf->get_line_intersection(glm::vec2(pa), glm::vec2(pb),
+                                                  glm::vec2(point), glm::vec2(point)+increment,
+                                                  &intersection);
+            if(intersect)
             {
-//                pa = glm::vec3(mc->vertexList[0].position[0], mc->vertexList[0].position[1], 0.0f);
-//                float dist = bf->distancePoints(bf->point, pa);
-            }
-            else // line list
-            {
-                pa = glm::vec3(mc->vertexList[0].position[0], mc->vertexList[0].position[1], 0.0f);
-//                mc->colorList[0].color[0] = 255;
-//                mc->colorList[0].color[1] = 255;
-//                mc->colorList[0].color[2] = 255;
-                
-//                mc->updateColors();
-                
-                for(int i=1;i<mc->vertexList.size();i++)
-                {
-//                    mc->colorList[i].color[0] = 255;
-//                    mc->colorList[i].color[1] = 255;
-//                    mc->colorList[i].color[2] = 255;
-                    
-//                    mc->updateColors();
-                    
-                    pb = glm::vec3(mc->vertexList[i].position[0], mc->vertexList[i].position[1], 0.0f);
-                    // pa pb is the line
-                    glm::vec2 intersection(-1.0f, -1.0f);
-                    
-                    intersect = sf->get_line_intersection(glm::vec2(pa), glm::vec2(pb),
-                                          glm::vec2(point), glm::vec2(point)+increment,
-                                          &intersection);
-                    if(intersect)
-                    {
-                        pointIntersection.push_back(glm::vec2(intersection.x, intersection.y));
-                    }
-                    pa = pb;
-                }
+                pointIntersection.push_back(glm::vec2(intersection.x, intersection.y));
             }
         }
 	}

@@ -14,9 +14,9 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
+#include "Renderer.h"
 #include <list>
 #include <vector>
-#include "ModelComponent.h"
 
 class Building {
     
@@ -35,6 +35,7 @@ public:
     std::vector<Vertex> vertexList;
     std::vector<GLint> indexList;
     std::vector<Color> colorList;
+    std::vector<UV> uvList;
     
     bool linkedWidth;
     bool linkedDepth;
@@ -48,8 +49,11 @@ public:
     GLuint vertexBuffer;
     GLuint indexBuffer;
     GLuint colorBuffer;
+    GLuint uvbuffer;
     
     GLuint vao;
+    
+    GLuint texture;
     
     int numTriangles;
 };

@@ -65,7 +65,7 @@ void Renderer::setupSDL_GL()
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     
-    glEnable(GL_PROGRAM_POINT_SIZE);
+    glEnable( GL_TEXTURE_2D );
     //    glFrontFace(GL_CW);
 }
 
@@ -79,6 +79,103 @@ void Renderer::destroySDL_GL()
 void Renderer::swap()
 {
     SDL_GL_SwapWindow(window);
+}
+
+void Renderer::buildVAO()
+{
+    ModelLine *ml;
+    
+    GLint index = 0;
+    
+    Color c;
+    c.color[0] = 1;
+    c.color[1] = 1;
+    c.color[2] = 1;
+    
+    for(int i=0;i<engine->lineList.size();i++)
+    {
+        ml = engine->lineList[i];
+        
+        ml->colorIndex = index;
+
+        Vertex aux;
+        
+        aux.position[0] = ml->a.x;
+        aux.position[1] = ml->a.y;
+        aux.position[2] = ml->a.z;
+        
+        vertexList.push_back(aux);
+        colorList.push_back(c);
+        indexList.push_back(index++);
+        
+        aux.position[0] = ml->b.x;
+        aux.position[1] = ml->b.y;
+        aux.position[2] = ml->b.z;
+        
+        vertexList.push_back(aux);
+        colorList.push_back(c);
+        indexList.push_back(index++);
+        
+        using namespace SpatialIndex;
+        
+        double p[2], op[2];
+        
+        id_type id = engine->getNextIdentifier();
+        
+        p[0] = ml->a.x;
+        p[1] = ml->a.y;
+        
+        op[0] = ml->b.x;
+        op[1] = ml->b.y;
+        
+        LineSegment line = LineSegment(p, op, 2);
+        
+        engine->tree->insertData(0, 0, line, id);
+        
+        engine->componentMap[id].line = ml;
+        engine->componentMap[id].building = NULL;
+    }
+    
+    // generate Vertex Array for mesh
+    glGenVertexArrays(1,&vao);
+    glBindVertexArray(vao);
+    
+    // buffer for faces
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * indexList.size(), &indexList[0], GL_STATIC_DRAW);
+    
+    // buffer for vertex positions
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertexList.size(), &vertexList[0], GL_STATIC_DRAW);
+    glEnableVertexAttribArray(ATTRIB_VERTEX);
+    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, 0, 0);
+    
+    // buffer for vertex colors
+    glGenBuffers(1, &colorBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Color) * colorList.size(), &colorList[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(ATTRIB_COLOR);
+    glVertexAttribPointer(ATTRIB_COLOR, 3, GL_FLOAT, 0, 0, 0);
+    
+    // unbind buffers
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
+}
+
+void Renderer::updateColors()
+{
+    glBindVertexArray(vao);
+    glGenBuffers(1, &colorBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Color) * colorList.size(), &colorList[0], GL_DYNAMIC_DRAW);
+    glEnableVertexAttribArray(ATTRIB_COLOR);
+    glVertexAttribPointer(ATTRIB_COLOR, 3, GL_FLOAT, 0, 0, 0);
+    
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER,0);
 }
 
 void Renderer::loadVAO()
@@ -108,8 +205,8 @@ void Renderer::loadVAO()
 	};
     
     
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    glGenVertexArrays(1, &cubeVao);
+    glBindVertexArray(cubeVao);
     
     static const GLuint indices[] =
     {
@@ -141,9 +238,13 @@ void Renderer::loadVAO()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(1);
     
-	glGenBuffers(1, &elementBuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
+	glGenBuffers(1, &indexBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices , GL_STATIC_DRAW);
+    
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
     
     loadCircle();
 }
@@ -194,8 +295,8 @@ void Renderer::loadCircle()
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
     glEnableVertexAttribArray(1);
     
-	glGenBuffers(1, &elementBuffer);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer);
+	glGenBuffers(1, &indexBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * index.size(), &index[0] , GL_STATIC_DRAW);
     
     glBindVertexArray(0);
@@ -274,45 +375,6 @@ void Renderer::popMatrix()
 {
     modelMatrix = matrixStack.top();
     matrixStack.pop();
-}
-
-void Renderer::renderAllModels()
-{
-    std::list<Model*>::iterator i;
-    
-    //    int n = 1;
-    //    printf("Models: %d\n", engine->modelList.size());
-    
-    for(i=engine->modelList.begin(); i != engine->modelList.end(); ++i)
-    {
-        Model* aux = (Model*) *i;
-        //        printf("     %d Components: %d\n", n++, aux->componentList.size());
-        
-        std::list<ModelComponent*>::iterator i;
-        
-        for(i=aux->componentList.begin(); i != aux->componentList.end(); ++i)
-        {
-            ModelComponent* component = (ModelComponent*) *i;
-            //            component->repaint(glm::vec3(0,255,0));
-            //                glBindBufferRange(GL_UNIFORM_BUFFER,
-            //                                        materialUniLoc,
-            //                                        myMeshes[nd->mMeshes[n]].uniformBlockIndex,
-            //                                        0,
-            //                                        sizeof(struct MyMaterial));
-            //		glBindTexture(GL_TEXTURE_2D, myMeshes[nd->mMeshes[n]].texIndex);
-            //                component->printVertices();
-            glBindVertexArray(component->vao);
-            if(component->type == 0)
-            {
-                glDrawElements(GL_LINES, (int) component->vertexList.size(), GL_UNSIGNED_INT, 0);
-            }
-            else if(component->type == 1)
-            {
-                glDrawElements(GL_LINE_STRIP, (int) component->vertexList.size(), GL_UNSIGNED_INT, 0);
-            }
-        }
-    }
-    //    printf("Rendered!");
 }
 
 glm::vec3 Renderer::unproject(int wx, int wy)

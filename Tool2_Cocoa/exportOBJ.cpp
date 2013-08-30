@@ -10,7 +10,6 @@
 #include "Engine.h"
 #include "Building.h"
 #include "Renderer.h"
-#include "ModelComponent.h"
 
 extern Engine* engine;
 

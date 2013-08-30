@@ -17,17 +17,11 @@
 @property (assign) IBOutlet NSTextField *buildingsNumberField;
 @property (assign) IBOutlet NSTextField *radiusField;
 
-@property (assign) IBOutlet NSTextField *numberOfRoutes;
-
 @property (assign) IBOutlet NSPopUpButton *blockType;
 
 @property (assign) IBOutlet NSWindow *error;
 
 -(IBAction) exportOBJ;
--(IBAction) generateSUMO;
--(IBAction) generateRoutes;
--(IBAction) generateTrips;
--(IBAction) generateConnectivity;
 
 
 

@@ -7,6 +7,7 @@
 //
 
 #include "Building.h"
+#include "Renderer.h"
 
 struct BuildingComponent {
 
@@ -321,6 +322,7 @@ void Building::generate(int type)
             if(isBox == true)
             {
                 Vertex v1, v2, v3, v4;
+                UV uv;
                 
                 aux = *i;
                 
@@ -328,17 +330,33 @@ void Building::generate(int type)
                 v1.position[1] = 0.0f;
                 v1.position[2] = 0.0f;
                 
+                uv.u = 0;
+                uv.v = 0;
+                uvList.push_back(uv);
+                
                 v2.position[0] = width;
                 v2.position[1] = 0.0f;
                 v2.position[2] = 0.0f;
+                
+                uv.u = 0;
+                uv.v = 1;
+                uvList.push_back(uv);
                 
                 v3.position[0] = width;
                 v3.position[1] = depth;
                 v3.position[2] = 0.0f;
                 
+                uv.u = 1;
+                uv.v = 1;
+                uvList.push_back(uv);
+                
                 v4.position[0] = 0.0f;
                 v4.position[1] = depth;
                 v4.position[2] = 0.0f;
+                
+                uv.u = 1;
+                uv.v = 0;
+                uvList.push_back(uv);
                 
                 vertexList.push_back(v1);
                 vertexList.push_back(v2);
@@ -350,6 +368,7 @@ void Building::generate(int type)
                 vColor.color[1] = aux.color.y;
                 vColor.color[2] = aux.color.z;
                 colorList.push_back(vColor);
+                
                 aux.color = glm::vec3((float)rand()/RAND_MAX,(float)rand()/RAND_MAX,(float)rand()/RAND_MAX);
                 vColor.color[0] = aux.color.x;
                 vColor.color[1] = aux.color.y;
@@ -372,9 +391,24 @@ void Building::generate(int type)
                 v4.position[2] = height;
                 
                 vertexList.push_back(v1);
+                uv.u = 1;
+                uv.v = 0;
+                uvList.push_back(uv);
+                
                 vertexList.push_back(v2);
+                uv.u = 1;
+                uv.v = 1;
+                uvList.push_back(uv);
+                
                 vertexList.push_back(v3);
+                uv.u = 1;
+                uv.v = 0;
+                uvList.push_back(uv);
+                
                 vertexList.push_back(v4);
+                uv.u = 1;
+                uv.v = 1;
+                uvList.push_back(uv);
                 
                 aux.color = glm::vec3((float)rand()/RAND_MAX,(float)rand()/RAND_MAX,(float)rand()/RAND_MAX);
                 vColor.color[0] = aux.color.x;
@@ -505,14 +539,20 @@ void Building::buildVAO()
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertexList.size(), &vertexList[0], GL_STATIC_DRAW);
     glEnableVertexAttribArray(ATTRIB_VERTEX);
-    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, 0, 0, 0);
+    glVertexAttribPointer(ATTRIB_VERTEX, 3, GL_FLOAT, GL_FALSE, 0, 0);
     
     // buffer for vertex colors
     glGenBuffers(1, &colorBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, colorBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Color) * colorList.size(), &colorList[0], GL_DYNAMIC_DRAW);
     glEnableVertexAttribArray(ATTRIB_COLOR);
-    glVertexAttribPointer(ATTRIB_COLOR, 3, GL_FLOAT, 0, 0, 0);
+    glVertexAttribPointer(ATTRIB_COLOR, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+	glGenBuffers(1, &uvbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(UV) * uvList.size(), &uvList[0], GL_STATIC_DRAW);
+    glEnableVertexAttribArray(ATTRIB_TEX);
+    glVertexAttribPointer(ATTRIB_TEX, 2, GL_FLOAT, GL_FALSE, 0, 0);
     
     // unbind buffers
     glBindVertexArray(0);

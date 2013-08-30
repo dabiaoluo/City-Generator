@@ -7,23 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6623BE5F17C6CF06006B9827 /* netcheck.py in Resources */ = {isa = PBXBuildFile; fileRef = 6623BE5E17C6CEFB006B9827 /* netcheck.py */; };
-		6628FA8D17BC022700DB47B7 /* Road.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6628FA8B17BC022700DB47B7 /* Road.cpp */; };
-		6628FA9017BC023300DB47B7 /* RoadVertex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */; };
-		66337C3917BD714C00991BD2 /* netconvert in Resources */ = {isa = PBXBuildFile; fileRef = 66337C3817BD713F00991BD2 /* netconvert */; };
+		6610CFDF17CFD8DD000D0412 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610CFDD17CFD8DD000D0412 /* Texture.cpp */; };
+		6610CFE217CFDC97000D0412 /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610CFE017CFDC97000D0412 /* TextureLoader.cpp */; };
+		6610CFEA17CFE11F000D0412 /* libtiff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610CFE917CFE11F000D0412 /* libtiff.a */; };
+		6610CFEE17CFE16A000D0412 /* libjasper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610CFED17CFE16A000D0412 /* libjasper.a */; };
+		6610CFFC17CFE32D000D0412 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610CFFB17CFE32D000D0412 /* libz.1.2.5.dylib */; };
+		6610CFFE17CFE351000D0412 /* libjpeg.8.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610CFFD17CFE351000D0412 /* libjpeg.8.dylib */; };
+		6610CFFF17CFE381000D0412 /* libpng15.15.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610CFF717CFE2A6000D0412 /* libpng15.15.dylib */; };
+		6610D00117CFE554000D0412 /* libIL.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6610D00017CFE554000D0412 /* libIL.1.dylib */; };
+		6610D02617CFE808000D0412 /* 01.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00317CFE79E000D0412 /* 01.jpg */; };
+		6610D02717CFE808000D0412 /* 02.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00417CFE79E000D0412 /* 02.jpg */; };
+		6610D02817CFE808000D0412 /* 03.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00517CFE79E000D0412 /* 03.jpg */; };
+		6610D02917CFE808000D0412 /* 04.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00617CFE79E000D0412 /* 04.jpg */; };
+		6610D02A17CFE808000D0412 /* 05.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00717CFE79E000D0412 /* 05.jpg */; };
+		6610D02B17CFE808000D0412 /* 06.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00817CFE79E000D0412 /* 06.jpg */; };
+		6610D02C17CFE808000D0412 /* 07.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00917CFE79E000D0412 /* 07.jpg */; };
+		6610D02D17CFE808000D0412 /* 08.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00A17CFE79E000D0412 /* 08.jpg */; };
+		6610D02E17CFE808000D0412 /* 09.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00B17CFE79E000D0412 /* 09.jpg */; };
+		6610D02F17CFE808000D0412 /* 10.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00C17CFE79E000D0412 /* 10.jpg */; };
+		6610D03017CFE808000D0412 /* 11.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00D17CFE79E000D0412 /* 11.jpg */; };
+		6610D03117CFE808000D0412 /* 12.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00E17CFE79E000D0412 /* 12.jpg */; };
+		6610D03217CFE808000D0412 /* 13.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D00F17CFE79E000D0412 /* 13.jpg */; };
+		6610D03317CFE808000D0412 /* 14.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D01017CFE79E000D0412 /* 14.jpg */; };
+		6610D03417CFE808000D0412 /* 15.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D01117CFE79E000D0412 /* 15.jpg */; };
+		6610D03517CFE808000D0412 /* 16.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D01217CFE79E000D0412 /* 16.jpg */; };
+		6610D03617CFE808000D0412 /* 17.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D01317CFE79E000D0412 /* 17.jpg */; };
+		6610D03917CFF681000D0412 /* 18.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6610D03717CFF675000D0412 /* 18.jpg */; };
 		6636907517B43E2F003EAB57 /* companies.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6636907417B43E2F003EAB57 /* companies.icns */; };
-		663D48FE17BFF03500489EA1 /* randomTrips.py in Resources */ = {isa = PBXBuildFile; fileRef = 663D48FD17BFF02E00489EA1 /* randomTrips.py */; };
-		663D493017BFF42600489EA1 /* duarouter in Resources */ = {isa = PBXBuildFile; fileRef = 663D492F17BFF42200489EA1 /* duarouter */; };
 		6641B78617B40BB500E1DC7A /* exportOBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6641B78417B40BB500E1DC7A /* exportOBJ.cpp */; };
 		6641B78A17B414F200E1DC7A /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6641B78817B414F200E1DC7A /* MainMenu.cpp */; };
-		6645463C17BC215400FFFA60 /* Connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6645463A17BC215400FFFA60 /* Connection.cpp */; };
-		6645464017BC24BC00FFFA60 /* ConnectionExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */; };
 		666A3BCC17B42FC90037AB8A /* libspatialindex.3.0.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */; };
 		666B7F1E17B3891B008271D4 /* TestCreationClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F0C17B3891A008271D4 /* TestCreationClass.cpp */; };
-		666B7F1F17B3891B008271D4 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F0E17B3891A008271D4 /* Model.cpp */; };
-		666B7F2017B3891B008271D4 /* ModelComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1017B3891A008271D4 /* ModelComponent.cpp */; };
 		666B7F2117B3891B008271D4 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1217B3891A008271D4 /* Layer.cpp */; };
-		666B7F2217B3891B008271D4 /* ModelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1417B3891A008271D4 /* ModelFactory.cpp */; };
 		666B7F2317B3891B008271D4 /* BuildingFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1617B3891A008271D4 /* BuildingFactory.cpp */; };
 		666B7F2417B3891B008271D4 /* Building.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1817B3891B008271D4 /* Building.cpp */; };
 		666B7F2517B3891B008271D4 /* SurfaceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666B7F1A17B3891B008271D4 /* SurfaceFactory.cpp */; };
@@ -34,8 +49,6 @@
 		666B7F3217B389B9008271D4 /* shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 666B7F2E17B389A8008271D4 /* shader.vert */; };
 		666B7F3517B38A95008271D4 /* libspatialindex.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */; };
 		666B7F3717B38A99008271D4 /* libdxflib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 666B7F3617B38A99008271D4 /* libdxflib.a */; };
-		66A0C6EC17BD5DEF008467D2 /* NodeExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */; };
-		66A0C6EF17BD60A7008467D2 /* RoadExporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */; };
 		66E7690B17B249DA00E9541D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7690A17B249DA00E9541D /* Cocoa.framework */; };
 		66E7691517B249DA00E9541D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66E7691317B249DA00E9541D /* InfoPlist.strings */; };
 		66E7691717B249DA00E9541D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66E7691617B249DA00E9541D /* main.m */; };
@@ -49,9 +62,37 @@
 		66E7693517B24A9A00E9541D /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7693317B24A9A00E9541D /* utils.cpp */; };
 		66E7693817B24ACE00E9541D /* EventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7693617B24ACE00E9541D /* EventHandler.cpp */; };
 		66E7693917B24BFC00E9541D /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7693117B24A4400E9541D /* Engine.cpp */; };
+		66F3A3C817CEB3BE00EBF3FD /* ModelLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F3A3C617CEB3BE00EBF3FD /* ModelLine.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6610D02517CFE7EE000D0412 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Textures;
+			dstSubfolderSpec = 7;
+			files = (
+				6610D02617CFE808000D0412 /* 01.jpg in CopyFiles */,
+				6610D02717CFE808000D0412 /* 02.jpg in CopyFiles */,
+				6610D02817CFE808000D0412 /* 03.jpg in CopyFiles */,
+				6610D02917CFE808000D0412 /* 04.jpg in CopyFiles */,
+				6610D02A17CFE808000D0412 /* 05.jpg in CopyFiles */,
+				6610D02B17CFE808000D0412 /* 06.jpg in CopyFiles */,
+				6610D02C17CFE808000D0412 /* 07.jpg in CopyFiles */,
+				6610D02D17CFE808000D0412 /* 08.jpg in CopyFiles */,
+				6610D02E17CFE808000D0412 /* 09.jpg in CopyFiles */,
+				6610D02F17CFE808000D0412 /* 10.jpg in CopyFiles */,
+				6610D03017CFE808000D0412 /* 11.jpg in CopyFiles */,
+				6610D03117CFE808000D0412 /* 12.jpg in CopyFiles */,
+				6610D03217CFE808000D0412 /* 13.jpg in CopyFiles */,
+				6610D03317CFE808000D0412 /* 14.jpg in CopyFiles */,
+				6610D03417CFE808000D0412 /* 15.jpg in CopyFiles */,
+				6610D03517CFE808000D0412 /* 16.jpg in CopyFiles */,
+				6610D03617CFE808000D0412 /* 17.jpg in CopyFiles */,
+				6610D03917CFF681000D0412 /* 18.jpg in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		666A3BCB17B42FB50037AB8A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,33 +106,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6623BE5E17C6CEFB006B9827 /* netcheck.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = netcheck.py; sourceTree = "<group>"; };
-		6628FA8B17BC022700DB47B7 /* Road.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Road.cpp; sourceTree = "<group>"; };
-		6628FA8C17BC022700DB47B7 /* Road.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Road.h; sourceTree = "<group>"; };
-		6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoadVertex.cpp; sourceTree = "<group>"; };
-		6628FA8F17BC023300DB47B7 /* RoadVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadVertex.h; sourceTree = "<group>"; };
-		66337C3817BD713F00991BD2 /* netconvert */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = netconvert; sourceTree = "<group>"; };
+		6610CFDD17CFD8DD000D0412 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		6610CFDE17CFD8DD000D0412 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		6610CFE017CFDC97000D0412 /* TextureLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureLoader.cpp; sourceTree = "<group>"; };
+		6610CFE117CFDC97000D0412 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		6610CFE917CFE11F000D0412 /* libtiff.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libtiff.a; sourceTree = "<group>"; };
+		6610CFED17CFE16A000D0412 /* libjasper.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjasper.a; sourceTree = "<group>"; };
+		6610CFF717CFE2A6000D0412 /* libpng15.15.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpng15.15.dylib; sourceTree = "<group>"; };
+		6610CFFB17CFE32D000D0412 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libz.1.2.5.dylib; sourceTree = "<group>"; };
+		6610CFFD17CFE351000D0412 /* libjpeg.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libjpeg.8.dylib; sourceTree = "<group>"; };
+		6610D00017CFE554000D0412 /* libIL.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libIL.1.dylib; sourceTree = "<group>"; };
+		6610D00317CFE79E000D0412 /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 01.jpg; sourceTree = "<group>"; };
+		6610D00417CFE79E000D0412 /* 02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 02.jpg; sourceTree = "<group>"; };
+		6610D00517CFE79E000D0412 /* 03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 03.jpg; sourceTree = "<group>"; };
+		6610D00617CFE79E000D0412 /* 04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 04.jpg; sourceTree = "<group>"; };
+		6610D00717CFE79E000D0412 /* 05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 05.jpg; sourceTree = "<group>"; };
+		6610D00817CFE79E000D0412 /* 06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 06.jpg; sourceTree = "<group>"; };
+		6610D00917CFE79E000D0412 /* 07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 07.jpg; sourceTree = "<group>"; };
+		6610D00A17CFE79E000D0412 /* 08.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 08.jpg; sourceTree = "<group>"; };
+		6610D00B17CFE79E000D0412 /* 09.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 09.jpg; sourceTree = "<group>"; };
+		6610D00C17CFE79E000D0412 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		6610D00D17CFE79E000D0412 /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
+		6610D00E17CFE79E000D0412 /* 12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12.jpg; sourceTree = "<group>"; };
+		6610D00F17CFE79E000D0412 /* 13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 13.jpg; sourceTree = "<group>"; };
+		6610D01017CFE79E000D0412 /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
+		6610D01117CFE79E000D0412 /* 15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 15.jpg; sourceTree = "<group>"; };
+		6610D01217CFE79E000D0412 /* 16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 16.jpg; sourceTree = "<group>"; };
+		6610D01317CFE79E000D0412 /* 17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 17.jpg; sourceTree = "<group>"; };
+		6610D03717CFF675000D0412 /* 18.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 18.jpg; sourceTree = "<group>"; };
 		6636907417B43E2F003EAB57 /* companies.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = companies.icns; sourceTree = "<group>"; };
-		663D48FD17BFF02E00489EA1 /* randomTrips.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = randomTrips.py; sourceTree = "<group>"; };
-		663D492F17BFF42200489EA1 /* duarouter */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = duarouter; sourceTree = "<group>"; };
 		6641B78417B40BB500E1DC7A /* exportOBJ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exportOBJ.cpp; sourceTree = "<group>"; };
 		6641B78517B40BB500E1DC7A /* exportOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exportOBJ.h; sourceTree = "<group>"; };
 		6641B78817B414F200E1DC7A /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainMenu.cpp; path = ../MainMenu.cpp; sourceTree = "<group>"; };
 		6641B78917B414F200E1DC7A /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenu.h; path = ../MainMenu.h; sourceTree = "<group>"; };
-		6645463A17BC215400FFFA60 /* Connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connection.cpp; sourceTree = "<group>"; };
-		6645463B17BC215400FFFA60 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
-		6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectionExporter.cpp; sourceTree = "<group>"; };
-		6645463F17BC24BC00FFFA60 /* ConnectionExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionExporter.h; sourceTree = "<group>"; };
 		666B7F0C17B3891A008271D4 /* TestCreationClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCreationClass.cpp; sourceTree = "<group>"; };
 		666B7F0D17B3891A008271D4 /* TestCreationClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCreationClass.h; sourceTree = "<group>"; };
-		666B7F0E17B3891A008271D4 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
-		666B7F0F17B3891A008271D4 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		666B7F1017B3891A008271D4 /* ModelComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelComponent.cpp; sourceTree = "<group>"; };
-		666B7F1117B3891A008271D4 /* ModelComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelComponent.h; sourceTree = "<group>"; };
 		666B7F1217B3891A008271D4 /* Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		666B7F1317B3891A008271D4 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
-		666B7F1417B3891A008271D4 /* ModelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelFactory.cpp; sourceTree = "<group>"; };
-		666B7F1517B3891A008271D4 /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelFactory.h; sourceTree = "<group>"; };
 		666B7F1617B3891A008271D4 /* BuildingFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BuildingFactory.cpp; sourceTree = "<group>"; };
 		666B7F1717B3891B008271D4 /* BuildingFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingFactory.h; sourceTree = "<group>"; };
 		666B7F1817B3891B008271D4 /* Building.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Building.cpp; sourceTree = "<group>"; };
@@ -105,10 +156,6 @@
 		666B7F3317B389D2008271D4 /* glStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glStructs.h; sourceTree = "<group>"; };
 		666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libspatialindex.3.0.0.dylib; sourceTree = "<group>"; };
 		666B7F3617B38A99008271D4 /* libdxflib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdxflib.a; sourceTree = "<group>"; };
-		66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeExporter.cpp; sourceTree = "<group>"; };
-		66A0C6EB17BD5DEF008467D2 /* NodeExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeExporter.h; sourceTree = "<group>"; };
-		66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoadExporter.cpp; sourceTree = "<group>"; };
-		66A0C6EE17BD60A7008467D2 /* RoadExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadExporter.h; sourceTree = "<group>"; };
 		66E7690717B249DA00E9541D /* City Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66E7690A17B249DA00E9541D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		66E7690D17B249DA00E9541D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -134,6 +181,8 @@
 		66E7693417B24A9A00E9541D /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
 		66E7693617B24ACE00E9541D /* EventHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EventHandler.cpp; sourceTree = "<group>"; };
 		66E7693717B24ACE00E9541D /* EventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHandler.h; sourceTree = "<group>"; };
+		66F3A3C617CEB3BE00EBF3FD /* ModelLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelLine.cpp; sourceTree = "<group>"; };
+		66F3A3C717CEB3BE00EBF3FD /* ModelLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelLine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,35 +195,53 @@
 				66E7692A17B249FB00E9541D /* OpenGL.framework in Frameworks */,
 				666B7F3517B38A95008271D4 /* libspatialindex.3.0.0.dylib in Frameworks */,
 				666B7F3717B38A99008271D4 /* libdxflib.a in Frameworks */,
+				6610CFEA17CFE11F000D0412 /* libtiff.a in Frameworks */,
+				6610CFEE17CFE16A000D0412 /* libjasper.a in Frameworks */,
+				6610CFFC17CFE32D000D0412 /* libz.1.2.5.dylib in Frameworks */,
+				6610CFFE17CFE351000D0412 /* libjpeg.8.dylib in Frameworks */,
+				6610CFFF17CFE381000D0412 /* libpng15.15.dylib in Frameworks */,
+				6610D00117CFE554000D0412 /* libIL.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6628FA8A17BC021F00DB47B7 /* Roads */ = {
+		6610CFDC17CFD8D4000D0412 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
-				6628FA8B17BC022700DB47B7 /* Road.cpp */,
-				6628FA8C17BC022700DB47B7 /* Road.h */,
-				6628FA8E17BC023300DB47B7 /* RoadVertex.cpp */,
-				6628FA8F17BC023300DB47B7 /* RoadVertex.h */,
-				6645463A17BC215400FFFA60 /* Connection.cpp */,
-				6645463B17BC215400FFFA60 /* Connection.h */,
+				6610CFDE17CFD8DD000D0412 /* Texture.h */,
+				6610CFDD17CFD8DD000D0412 /* Texture.cpp */,
+				6610CFE017CFDC97000D0412 /* TextureLoader.cpp */,
+				6610CFE117CFDC97000D0412 /* TextureLoader.h */,
 			);
-			name = Roads;
+			name = Textures;
 			sourceTree = "<group>";
 		};
-		66337C3717BD713400991BD2 /* Sumo */ = {
+		6610D00217CFE79E000D0412 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
-				663D492F17BFF42200489EA1 /* duarouter */,
-				6623BE5E17C6CEFB006B9827 /* netcheck.py */,
-				663D48FD17BFF02E00489EA1 /* randomTrips.py */,
-				66337C3817BD713F00991BD2 /* netconvert */,
+				6610D00317CFE79E000D0412 /* 01.jpg */,
+				6610D00417CFE79E000D0412 /* 02.jpg */,
+				6610D00517CFE79E000D0412 /* 03.jpg */,
+				6610D00617CFE79E000D0412 /* 04.jpg */,
+				6610D00717CFE79E000D0412 /* 05.jpg */,
+				6610D00817CFE79E000D0412 /* 06.jpg */,
+				6610D00917CFE79E000D0412 /* 07.jpg */,
+				6610D00A17CFE79E000D0412 /* 08.jpg */,
+				6610D00B17CFE79E000D0412 /* 09.jpg */,
+				6610D00C17CFE79E000D0412 /* 10.jpg */,
+				6610D00D17CFE79E000D0412 /* 11.jpg */,
+				6610D00E17CFE79E000D0412 /* 12.jpg */,
+				6610D00F17CFE79E000D0412 /* 13.jpg */,
+				6610D01017CFE79E000D0412 /* 14.jpg */,
+				6610D01117CFE79E000D0412 /* 15.jpg */,
+				6610D01217CFE79E000D0412 /* 16.jpg */,
+				6610D01317CFE79E000D0412 /* 17.jpg */,
+				6610D03717CFF675000D0412 /* 18.jpg */,
 			);
-			name = Sumo;
-			sourceTree = "<group>";
+			path = Textures;
+			sourceTree = SOURCE_ROOT;
 		};
 		6641B78717B40BB800E1DC7A /* Exporter */ = {
 			isa = PBXGroup;
@@ -183,19 +250,6 @@
 				6641B78517B40BB500E1DC7A /* exportOBJ.h */,
 			);
 			name = Exporter;
-			sourceTree = "<group>";
-		};
-		6645463D17BC24AD00FFFA60 /* XMLExporter */ = {
-			isa = PBXGroup;
-			children = (
-				6645463E17BC24BC00FFFA60 /* ConnectionExporter.cpp */,
-				6645463F17BC24BC00FFFA60 /* ConnectionExporter.h */,
-				66A0C6EA17BD5DEF008467D2 /* NodeExporter.cpp */,
-				66A0C6EB17BD5DEF008467D2 /* NodeExporter.h */,
-				66A0C6ED17BD60A7008467D2 /* RoadExporter.cpp */,
-				66A0C6EE17BD60A7008467D2 /* RoadExporter.h */,
-			);
-			name = XMLExporter;
 			sourceTree = "<group>";
 		};
 		666B7F2717B38926008271D4 /* Engine */ = {
@@ -212,14 +266,8 @@
 			children = (
 				666B7F0C17B3891A008271D4 /* TestCreationClass.cpp */,
 				666B7F0D17B3891A008271D4 /* TestCreationClass.h */,
-				666B7F0E17B3891A008271D4 /* Model.cpp */,
-				666B7F0F17B3891A008271D4 /* Model.h */,
-				666B7F1017B3891A008271D4 /* ModelComponent.cpp */,
-				666B7F1117B3891A008271D4 /* ModelComponent.h */,
 				666B7F1217B3891A008271D4 /* Layer.cpp */,
 				666B7F1317B3891A008271D4 /* Layer.h */,
-				666B7F1417B3891A008271D4 /* ModelFactory.cpp */,
-				666B7F1517B3891A008271D4 /* ModelFactory.h */,
 				666B7F1617B3891A008271D4 /* BuildingFactory.cpp */,
 				666B7F1717B3891B008271D4 /* BuildingFactory.h */,
 				666B7F1817B3891B008271D4 /* Building.cpp */,
@@ -228,6 +276,8 @@
 				666B7F1B17B3891B008271D4 /* SurfaceFactory.h */,
 				666B7F1C17B3891B008271D4 /* Surface.cpp */,
 				666B7F1D17B3891B008271D4 /* Surface.h */,
+				66F3A3C617CEB3BE00EBF3FD /* ModelLine.cpp */,
+				66F3A3C717CEB3BE00EBF3FD /* ModelLine.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -242,13 +292,6 @@
 				66E7692E17B24A3700E9541D /* ShaderProgram.h */,
 			);
 			name = Rendering;
-			sourceTree = "<group>";
-		};
-		666B7F2A17B38949008271D4 /* Exporter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Exporter;
 			sourceTree = "<group>";
 		};
 		666B7F2B17B38958008271D4 /* Events */ = {
@@ -267,13 +310,6 @@
 				666B7F2E17B389A8008271D4 /* shader.vert */,
 			);
 			name = Shaders;
-			sourceTree = "<group>";
-		};
-		666B7F3817B38C0C008271D4 /* Drawings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Drawings;
 			sourceTree = "<group>";
 		};
 		66E768FE17B249DA00E9541D = {
@@ -297,6 +333,12 @@
 		66E7690917B249DA00E9541D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6610D00017CFE554000D0412 /* libIL.1.dylib */,
+				6610CFFB17CFE32D000D0412 /* libz.1.2.5.dylib */,
+				6610CFFD17CFE351000D0412 /* libjpeg.8.dylib */,
+				6610CFF717CFE2A6000D0412 /* libpng15.15.dylib */,
+				6610CFED17CFE16A000D0412 /* libjasper.a */,
+				6610CFE917CFE11F000D0412 /* libtiff.a */,
 				666B7F3617B38A99008271D4 /* libdxflib.a */,
 				666B7F3417B38A95008271D4 /* libspatialindex.3.0.0.dylib */,
 				66E7692917B249FB00E9541D /* OpenGL.framework */,
@@ -320,11 +362,8 @@
 		66E7691017B249DA00E9541D /* Tool2_Cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				66337C3717BD713400991BD2 /* Sumo */,
-				6645463D17BC24AD00FFFA60 /* XMLExporter */,
-				6628FA8A17BC021F00DB47B7 /* Roads */,
+				6610CFDC17CFD8D4000D0412 /* Textures */,
 				6641B78717B40BB800E1DC7A /* Exporter */,
-				666B7F3817B38C0C008271D4 /* Drawings */,
 				666B7F2C17B389A0008271D4 /* Shaders */,
 				6641B78817B414F200E1DC7A /* MainMenu.cpp */,
 				6641B78917B414F200E1DC7A /* MainMenu.h */,
@@ -333,11 +372,11 @@
 				66E7691F17B249DA00E9541D /* MainMenu.xib */,
 				66E7693317B24A9A00E9541D /* utils.cpp */,
 				66E7693417B24A9A00E9541D /* utils.h */,
+				666B7F2717B38926008271D4 /* Engine */,
 				666B7F2B17B38958008271D4 /* Events */,
-				666B7F2A17B38949008271D4 /* Exporter */,
 				666B7F2917B38939008271D4 /* Rendering */,
 				666B7F2817B38934008271D4 /* Model */,
-				666B7F2717B38926008271D4 /* Engine */,
+				6610D00217CFE79E000D0412 /* Textures */,
 				66E7691117B249DA00E9541D /* Supporting Files */,
 			);
 			path = Tool2_Cocoa;
@@ -367,6 +406,7 @@
 				6636907117B43AE4003EAB57 /* ShellScript */,
 				66E7690517B249DA00E9541D /* Resources */,
 				666A3BCB17B42FB50037AB8A /* CopyFiles */,
+				6610D02517CFE7EE000D0412 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -413,10 +453,6 @@
 				66E7691517B249DA00E9541D /* InfoPlist.strings in Resources */,
 				66E7691B17B249DA00E9541D /* Credits.rtf in Resources */,
 				66E7692117B249DA00E9541D /* MainMenu.xib in Resources */,
-				66337C3917BD714C00991BD2 /* netconvert in Resources */,
-				663D48FE17BFF03500489EA1 /* randomTrips.py in Resources */,
-				663D493017BFF42600489EA1 /* duarouter in Resources */,
-				6623BE5F17C6CF06006B9827 /* netcheck.py in Resources */,
 				6636907517B43E2F003EAB57 /* companies.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,11 +488,7 @@
 				66E7693517B24A9A00E9541D /* utils.cpp in Sources */,
 				66E7693817B24ACE00E9541D /* EventHandler.cpp in Sources */,
 				666B7F1E17B3891B008271D4 /* TestCreationClass.cpp in Sources */,
-				666B7F1F17B3891B008271D4 /* Model.cpp in Sources */,
-				666B7F2017B3891B008271D4 /* ModelComponent.cpp in Sources */,
 				666B7F2117B3891B008271D4 /* Layer.cpp in Sources */,
-				666B7F2217B3891B008271D4 /* ModelFactory.cpp in Sources */,
-				6628FA8D17BC022700DB47B7 /* Road.cpp in Sources */,
 				666B7F2317B3891B008271D4 /* BuildingFactory.cpp in Sources */,
 				666B7F2417B3891B008271D4 /* Building.cpp in Sources */,
 				666B7F2517B3891B008271D4 /* SurfaceFactory.cpp in Sources */,
@@ -465,11 +497,9 @@
 				666B7F2F17B389A8008271D4 /* shader.frag in Sources */,
 				666B7F3017B389A8008271D4 /* shader.vert in Sources */,
 				6641B78A17B414F200E1DC7A /* MainMenu.cpp in Sources */,
-				6628FA9017BC023300DB47B7 /* RoadVertex.cpp in Sources */,
-				6645463C17BC215400FFFA60 /* Connection.cpp in Sources */,
-				6645464017BC24BC00FFFA60 /* ConnectionExporter.cpp in Sources */,
-				66A0C6EC17BD5DEF008467D2 /* NodeExporter.cpp in Sources */,
-				66A0C6EF17BD60A7008467D2 /* RoadExporter.cpp in Sources */,
+				66F3A3C817CEB3BE00EBF3FD /* ModelLine.cpp in Sources */,
+				6610CFDF17CFD8DD000D0412 /* Texture.cpp in Sources */,
+				6610CFE217CFDC97000D0412 /* TextureLoader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +605,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/usr/local/Cellar/jpeg/8d/lib,
+					/usr/local/Cellar/libpng/1.5.14/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -596,6 +628,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					/usr/local/Cellar/jpeg/8d/lib,
+					/usr/local/Cellar/libpng/1.5.14/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
