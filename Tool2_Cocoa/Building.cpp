@@ -8,6 +8,9 @@
 
 #include "Building.h"
 #include "Renderer.h"
+#include "Engine.h"
+
+extern Engine* engine;
 
 struct BuildingComponent {
 
@@ -24,6 +27,14 @@ struct BuildingComponent {
     bool hasRoof;
 
 };
+
+long roundNum(double x) {
+    assert(x >= LONG_MIN-0.5);
+    assert(x <= LONG_MAX+0.5);
+    if (x >= 0)
+        return (long) (x+0.5);
+    return (long) (x-0.5);
+}
 
 Building::Building()
 {
@@ -42,6 +53,8 @@ void Building::generate(int type)
 {
     std::list<BuildingComponent> bcList;
     
+    this->texture = engine->textureList[(int) roundNum(((float)rand()/RAND_MAX)*(engine->textureList.size()-1))]->image;
+    printf("%d\n", this->texture);
     BuildingComponent aux;
 //    printf("%f, %f, %f\n", aux.color.x, aux.color.y, aux.color.z);
     int lastIndex = 0;
@@ -299,6 +312,7 @@ void Building::generate(int type)
     
     if(bcList.size() > 0)
     {
+        float mult = 50;
         // generate building
         std::list<BuildingComponent>::iterator i;
         float scaleFactor = 0.5f;
@@ -338,23 +352,23 @@ void Building::generate(int type)
                 v2.position[1] = 0.0f;
                 v2.position[2] = 0.0f;
                 
-                uv.u = 0;
-                uv.v = 1;
+                uv.u = -roundNum(width*mult);
+                uv.v = 0;
                 uvList.push_back(uv);
                 
                 v3.position[0] = width;
                 v3.position[1] = depth;
                 v3.position[2] = 0.0f;
                 
-                uv.u = 1;
-                uv.v = 1;
+                uv.u = 0;
+                uv.v = 0;
                 uvList.push_back(uv);
                 
                 v4.position[0] = 0.0f;
                 v4.position[1] = depth;
                 v4.position[2] = 0.0f;
                 
-                uv.u = 1;
+                uv.u = -roundNum(depth*mult);
                 uv.v = 0;
                 uvList.push_back(uv);
                 
@@ -391,23 +405,23 @@ void Building::generate(int type)
                 v4.position[2] = height;
                 
                 vertexList.push_back(v1);
-                uv.u = 1;
-                uv.v = 0;
+                uv.u = 0;
+                uv.v = -roundNum(height*mult);
                 uvList.push_back(uv);
                 
                 vertexList.push_back(v2);
-                uv.u = 1;
-                uv.v = 1;
+                uv.u = -roundNum(width*mult);
+                uv.v = -roundNum(height*mult);
                 uvList.push_back(uv);
                 
                 vertexList.push_back(v3);
-                uv.u = 1;
-                uv.v = 0;
+                uv.u = 0;
+                uv.v = -roundNum(height*mult);
                 uvList.push_back(uv);
                 
                 vertexList.push_back(v4);
-                uv.u = 1;
-                uv.v = 1;
+                uv.u = -roundNum(depth*mult);
+                uv.v = -roundNum(height*mult);
                 uvList.push_back(uv);
                 
                 aux.color = glm::vec3((float)rand()/RAND_MAX,(float)rand()/RAND_MAX,(float)rand()/RAND_MAX);
@@ -463,7 +477,7 @@ void Building::generate(int type)
                 indexList.push_back(lastIndex+7);
                 indexList.push_back(lastIndex+4);
                 
-                if(aux.hasRoof == true)
+                if(0)  // aux.hasRoof == true)
                 {
                     aux.color = glm::vec3(177.0f/255.0f,129.0f/255.0f,108.0f/255.0f);
                     

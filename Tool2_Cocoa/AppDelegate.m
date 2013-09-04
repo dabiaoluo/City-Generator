@@ -107,7 +107,7 @@ Engine *engine = new Engine();
     
     cameraPos.z = e->depth;
     
-//    engine->loadTexture("01.jpg");
+    engine->loadTexture("01.jpg");
 //    engine->loadTexture("02.jpg");
 //    engine->loadTexture("03.jpg");
 //    engine->loadTexture("04.jpg");
@@ -124,7 +124,11 @@ Engine *engine = new Engine();
 //    engine->loadTexture("15.jpg");
 //    engine->loadTexture("16.jpg");
 //    engine->loadTexture("17.jpg");
-    engine->loadTexture("01.jpg");
+//    engine->loadTexture("01.jpg");
+    engine->loadTexture("03.jpg");
+    engine->loadTexture("04.jpg");
+    engine->loadTexture("07.jpg");
+    engine->loadTexture("10.jpg");
     
     GLint mvp_uniform = sp->getUniform("modelViewProjectionMatrix");
     GLint useTexture = sp->getUniform("useTexture");
@@ -281,7 +285,7 @@ Engine *engine = new Engine();
             
             glUniformMatrix4fv(mvp_uniform, 1, GL_FALSE, glm::value_ptr(r->modelMatrix));
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, engine->textureList[0]->image);
+            glBindTexture(GL_TEXTURE_2D, aux->texture);
             glUniform1i(TextureID, 0);
             
             glBindVertexArray(aux->vao);
